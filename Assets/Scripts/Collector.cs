@@ -28,7 +28,7 @@ public class Collector : MonoBehaviour
     {
         if (other.gameObject.tag == "Collectable" && other.GetComponent<CollectableCubes>().isCollectedCube() == false)
         {
-            collectedCubes++;
+            collectedCubes += 1;
             other.gameObject.GetComponent<CollectableCubes>().setCollected();
             other.gameObject.GetComponent<CollectableCubes>().setIndex(collectedCubes);
             other.gameObject.transform.parent = mainCube.transform;
