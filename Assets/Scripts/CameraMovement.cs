@@ -6,6 +6,7 @@ public class CameraMovement : MonoBehaviour
 {
     public GameObject gameObject;
     public Vector3 offset;
+
     void Start()
     {
 

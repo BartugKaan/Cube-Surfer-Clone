@@ -16,12 +16,17 @@ public class Collector : MonoBehaviour
     void Update()
     {
         mainCube.transform.position = new Vector3(transform.position.x, collectedCubes + 1, transform.position.z);
-        this.transform.localPosition = new Vector3(0, -collectedCubes, 0);
+        transform.localPosition = new Vector3(0, -collectedCubes, 0);
+    }
+
+    public void reduceHeight()
+    {
+        collectedCubes--;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Collectable")
+        if (other.gameObject.tag == "Collectable" && other.GetComponent<CollectableCubes>().isCollectedCube() == false)
         {
             collectedCubes++;
             other.gameObject.GetComponent<CollectableCubes>().setCollected();

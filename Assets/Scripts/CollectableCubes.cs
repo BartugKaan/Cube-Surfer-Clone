@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CollectableCubes : MonoBehaviour
 {
     bool isCollected;
     int index;
+
+    public Collector collector;
 
     void Start()
     {
@@ -22,6 +25,17 @@ public class CollectableCubes : MonoBehaviour
             }
         }
 
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Obstacle")
+        {
+            collector.reduceHeight();
+            transform.parent = null;
+            GetComponent<BoxCollider>().enabled = false;
+            other.gameObject.GetComponent<BoxCollider>().enabled = false;
+        }
     }
 
     public bool isCollectedCube()
