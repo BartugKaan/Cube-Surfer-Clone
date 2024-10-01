@@ -31,11 +31,11 @@ public class CollectableCubes : MonoBehaviour
             particle.Play();
             isCollected = false;
             transform.parent = null;
-            transform.localPosition = new Vector3(transform.position.x, 1, transform.position.z);
+            transform.localPosition = new Vector3(transform.position.x + 0.3f, 1, transform.position.z);
             collector.reduceHeight();
             GetComponent<BoxCollider>().enabled = false;
             other.gameObject.GetComponent<BoxCollider>().enabled = false;
-            DestroyImmediate(particle);
+            particle.Stop();
         }
     }
 

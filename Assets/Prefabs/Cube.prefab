@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collector: {fileID: 0}
-  particle: {fileID: 423035975419164333, guid: 2d682533b205a4c9b82e1c230d6bc891, type: 3}
+  particle: {fileID: 4277896196314562446, guid: b86183da3a5664caaafa76c53492e8d6, type: 3}
 --- !u!54 &763018776767673685
 Rigidbody:
   m_ObjectHideFlags: 0
