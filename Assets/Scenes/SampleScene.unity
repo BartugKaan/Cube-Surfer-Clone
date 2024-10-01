@@ -491,7 +491,6 @@ MonoBehaviour:
   gameObject: {fileID: 1824950498}
   offset: {x: 10, y: 6, z: 10}
   collector: {fileID: 1563633345}
-  movement: {fileID: 0}
 --- !u!4 &1369893848 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 707136990861001141, guid: d674b564acadde849a2cd28ce63525a8, type: 3}
@@ -618,6 +617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCube: {fileID: 1824950498}
   isDead: 0
+  particle: {fileID: 8455451546822288326, guid: fd4ed6c52960a4ebf8c7b669e242d3c1, type: 3}
 --- !u!54 &1563633346
 Rigidbody:
   m_ObjectHideFlags: 0

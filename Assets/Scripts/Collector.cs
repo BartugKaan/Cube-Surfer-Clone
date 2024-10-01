@@ -8,6 +8,7 @@ public class Collector : MonoBehaviour
     public GameObject mainCube;
     int collectedCubes = 0;
     public bool isDead = false;
+    [SerializeField] private ParticleSystem particle;
 
     void Start()
     {
@@ -35,6 +36,9 @@ public class Collector : MonoBehaviour
     {
         if (other.gameObject.tag == "Collectable" && other.GetComponent<CollectableCubes>().isCollectedCube() == false)
         {
+            Vector3 particlePos = new Vector3(other.transform.position.x + 1.2f, other.transform.position.y, other.transform.position.z);
+            Instantiate(particle, particlePos, Quaternion.identity);
+            particle.Play();
             collectedCubes += 1;
             other.gameObject.GetComponent<CollectableCubes>().setCollected();
             other.gameObject.GetComponent<CollectableCubes>().setIndex(collectedCubes);
