@@ -6,8 +6,7 @@ public class CameraMovement : MonoBehaviour
 {
     public GameObject gameObject;
     public Vector3 offset;
-    public Collector collector;
-    public Movement movement;
+    [SerializeField] public Collector collector;
 
     void Start()
     {

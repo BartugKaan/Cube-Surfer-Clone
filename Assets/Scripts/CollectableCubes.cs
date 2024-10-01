@@ -10,13 +10,6 @@ public class CollectableCubes : MonoBehaviour
 
     public Collector collector;
     public ParticleSystem particle;
-    private Animation animation;
-
-    void Start()
-    {
-        animation = GetComponent<Animation>();
-        animation.Play();
-    }
 
     void Update()
     {
@@ -34,7 +27,6 @@ public class CollectableCubes : MonoBehaviour
     {
         if (other.gameObject.tag == "Obstacle")
         {
-            animation.Stop();
             Instantiate(particle, transform.position, Quaternion.identity);
             particle.Play();
             isCollected = false;
