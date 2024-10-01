@@ -9,6 +9,7 @@ public class CollectableCubes : MonoBehaviour
     int index;
 
     public Collector collector;
+    public ParticleSystem particle;
 
     void Start()
     {
@@ -31,12 +32,19 @@ public class CollectableCubes : MonoBehaviour
     {
         if (other.gameObject.tag == "Obstacle")
         {
+            Instantiate(particle, transform.position, Quaternion.identity);
+            particle.Play();
             isCollected = false;
             transform.parent = null;
             transform.localPosition = new Vector3(transform.position.x, 1, transform.position.z);
             collector.reduceHeight();
             GetComponent<BoxCollider>().enabled = false;
             other.gameObject.GetComponent<BoxCollider>().enabled = false;
+            DestroyImmediate(particle);
+        }
+        else if (other.gameObject.tag == "Collactable")
+        {
+            
         }
     }
 

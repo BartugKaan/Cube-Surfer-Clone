@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,4 +21,14 @@ public class Movement : MonoBehaviour
         this.transform.Translate(horizontal, 0, VerticalSpeed * Time.deltaTime);
 
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Collision Detected");
+        if (other.gameObject.tag == "Obstacle")
+        {
+            Debug.Log("Game Over");
+        }
+    }
+    
 }
