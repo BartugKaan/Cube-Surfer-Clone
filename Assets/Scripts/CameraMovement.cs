@@ -6,20 +6,20 @@ public class CameraMovement : MonoBehaviour
 {
     public GameObject gameObject;
     public Vector3 offset;
+    public Collector collector;
+    public Movement movement;
 
     void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     void LateUpdate()
     {
-        this.transform.position = Vector3.Lerp(this.transform.position, gameObject.transform.position + offset, Time.deltaTime);
+        if (collector.isDead)
+        {
+            return;
+        }
+
+        transform.position = Vector3.Lerp(transform.position, gameObject.transform.position + offset, Time.deltaTime);
     }
 }

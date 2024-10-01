@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private float HorizontalSpeed;
     [SerializeField] private float VerticalSpeed;
+    [SerializeField] private Collector collector;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,10 +17,13 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (collector.isDead)
+        {
+            return;
+        }
         float horizontal = Input.GetAxis("Horizontal") * HorizontalSpeed * Time.deltaTime;
 
-        this.transform.Translate(horizontal, 0, VerticalSpeed * Time.deltaTime);
-
+        transform.Translate(horizontal, 0, VerticalSpeed * Time.deltaTime);
     }
 
     void OnTriggerEnter(Collider other)
@@ -30,5 +34,5 @@ public class Movement : MonoBehaviour
             Debug.Log("Game Over");
         }
     }
-    
+
 }
