@@ -383,6 +383,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &917440649 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2347452581921841404, guid: e79ac81dcfaab43c98d75c3976c95839, type: 3}
+  m_PrefabInstance: {fileID: 5397020781895290213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &917440661
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917440649}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: cc62c683b933f4b0395d9ce239898b16, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,9 +982,29 @@ PrefabInstance:
       value: Cube
       objectReference: {fileID: 0}
     - target: {fileID: 3139412790012285373, guid: e79ac81dcfaab43c98d75c3976c95839, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3139412790012285373, guid: e79ac81dcfaab43c98d75c3976c95839, type: 3}
       propertyPath: collector
       value: 
       objectReference: {fileID: 1563633345}
+    - target: {fileID: 3139412790012285373, guid: e79ac81dcfaab43c98d75c3976c95839, type: 3}
+      propertyPath: scaleDuration
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3139412790012285373, guid: e79ac81dcfaab43c98d75c3976c95839, type: 3}
+      propertyPath: targetScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3139412790012285373, guid: e79ac81dcfaab43c98d75c3976c95839, type: 3}
+      propertyPath: targetScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3139412790012285373, guid: e79ac81dcfaab43c98d75c3976c95839, type: 3}
+      propertyPath: targetScale.z
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7103436943620599121, guid: e79ac81dcfaab43c98d75c3976c95839, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.44
@@ -1008,7 +1048,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2347452581921841404, guid: e79ac81dcfaab43c98d75c3976c95839, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 917440661}
   m_SourcePrefab: {fileID: 100100000, guid: e79ac81dcfaab43c98d75c3976c95839, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
