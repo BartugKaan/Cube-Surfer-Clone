@@ -23,7 +23,15 @@ public class Movement : MonoBehaviour
         }
         float horizontal = Input.GetAxis("Horizontal") * HorizontalSpeed * Time.deltaTime;
 
-        transform.Translate(horizontal, 0, VerticalSpeed * Time.deltaTime);
+        if (transform.position.z >= -4.6 && transform.position.z <= 4.6)
+        {
+            transform.Translate(horizontal, 0, VerticalSpeed * Time.deltaTime);
+        }
+        else
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -4.5f, 4.5f));
+        }
+
     }
 
     void OnTriggerEnter(Collider other)
