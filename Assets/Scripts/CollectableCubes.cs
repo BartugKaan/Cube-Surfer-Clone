@@ -7,9 +7,15 @@ public class CollectableCubes : MonoBehaviour
 {
     bool isCollected;
     int index;
+    AudioSource audioSource;
 
     public Collector collector;
     public ParticleSystem particle;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -27,6 +33,7 @@ public class CollectableCubes : MonoBehaviour
     {
         if (other.gameObject.tag == "Obstacle")
         {
+            audioSource.Play();
             Instantiate(particle, transform.position, Quaternion.identity);
             particle.Play();
             isCollected = false;

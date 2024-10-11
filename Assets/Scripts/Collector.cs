@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Collector : MonoBehaviour
 {
     public GameObject mainCube;
+    public AudioSource audioSource;
     int collectedCubes = 0;
     public bool isDead = false;
     [SerializeField] private ParticleSystem particle;
@@ -13,6 +14,7 @@ public class Collector : MonoBehaviour
     void Start()
     {
         mainCube = GameObject.Find("Main Cube");
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -36,6 +38,7 @@ public class Collector : MonoBehaviour
     {
         if (other.gameObject.tag == "Collectable" && other.GetComponent<CollectableCubes>().isCollectedCube() == false)
         {
+            audioSource.Play();
             Vector3 particlePos = new Vector3(other.transform.position.x + 1.2f, other.transform.position.y, other.transform.position.z);
             Instantiate(particle, particlePos, Quaternion.identity);
             particle.Play();
