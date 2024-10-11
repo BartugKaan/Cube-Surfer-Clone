@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,9 +14,11 @@ public class Collector : MonoBehaviour
     [SerializeField] private ParticleSystem cubeParticle;
     [SerializeField] private ParticleSystem obstacleParticle;
     [SerializeField] private ParticleSystem gemParticle;
+    [SerializeField] private TextMeshProUGUI gemText;
 
 
     private int collectedCubes = 0;
+    private int collectedGems = 0;
 
     void Start()
     {
@@ -27,6 +30,7 @@ public class Collector : MonoBehaviour
     {
         mainCube.transform.position = new Vector3(transform.position.x, collectedCubes + 1, transform.position.z);
         transform.localPosition = new Vector3(0, -collectedCubes, 0);
+        gemText.text = collectedGems.ToString();
     }
 
     public void reduceHeight()
@@ -62,6 +66,7 @@ public class Collector : MonoBehaviour
         }
         else if (other.gameObject.tag == "Gem")
         {
+            collectedGems++;
             Instantiate(gemParticle, other.transform.position, Quaternion.identity);
             gemParticle.Play();
             Destroy(other.gameObject);
