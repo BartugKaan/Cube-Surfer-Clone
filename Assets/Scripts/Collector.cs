@@ -8,9 +8,11 @@ public class Collector : MonoBehaviour
     public GameObject mainCube;
     public AudioSource collectionSound;
     public AudioSource hitSound;
-    public ParticleSystem obstacleParticle;
+
     public bool isDead = false;
     [SerializeField] private ParticleSystem cubeParticle;
+    [SerializeField] private ParticleSystem obstacleParticle;
+    [SerializeField] private ParticleSystem gemParticle;
 
 
     private int collectedCubes = 0;
@@ -57,7 +59,12 @@ public class Collector : MonoBehaviour
             hitSound.Play();
             setDead();
             Debug.Log("Game Over");
-
+        }
+        else if (other.gameObject.tag == "Gem")
+        {
+            Instantiate(gemParticle, other.transform.position, Quaternion.identity);
+            gemParticle.Play();
+            Destroy(other.gameObject);
         }
     }
 }
