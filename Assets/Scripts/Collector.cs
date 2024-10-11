@@ -8,9 +8,12 @@ public class Collector : MonoBehaviour
     public GameObject mainCube;
     public AudioSource collectionSound;
     public AudioSource hitSound;
-    int collectedCubes = 0;
+    public ParticleSystem obstacleParticle;
     public bool isDead = false;
-    [SerializeField] private ParticleSystem particle;
+    [SerializeField] private ParticleSystem cubeParticle;
+
+
+    private int collectedCubes = 0;
 
     void Start()
     {
@@ -40,8 +43,8 @@ public class Collector : MonoBehaviour
         {
             collectionSound.Play();
             Vector3 particlePos = new Vector3(other.transform.position.x + 1.2f, other.transform.position.y, other.transform.position.z);
-            Instantiate(particle, particlePos, Quaternion.identity);
-            particle.Play();
+            Instantiate(cubeParticle, particlePos, Quaternion.identity);
+            cubeParticle.Play();
             collectedCubes += 1;
             other.gameObject.GetComponent<CollectableCubes>().setCollected();
             other.gameObject.GetComponent<CollectableCubes>().setIndex(collectedCubes);
@@ -49,6 +52,8 @@ public class Collector : MonoBehaviour
         }
         else if (collectedCubes == 0 && other.gameObject.tag == "Obstacle")
         {
+            Instantiate(obstacleParticle, transform.position, Quaternion.identity);
+            obstacleParticle.Play();
             hitSound.Play();
             setDead();
             Debug.Log("Game Over");
